@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        function add(a, b){
+            return a + b;
+        }
+
+        let add = function anAddFunction(a, b){
+            return a + b;
+        }
+
+        let add = function(a, b){
+            return a + b;
+        }
+
+        let add = (a, b) => a + b;
+
+        Console.log(add(3,2));
+
+
+
+
+        let osszeg = function(a, b){
+            return a + b;
+        }
+
+        let szorzat = function(a, b){
+            return a * b;
+        }
+
+        function vegrehajt(a, b, muvelet){
+            return muvelet(a + b);
+        }
+
+
+
+
+        function nyugdij(ev){
+            return function(szuletesiEv){
+                let datumObjektum = new Date();
+                let aktualisEv = datumObjektum.getFullYear();
+                let kor = aktualisEv - szuletesiEv;
+                console.log(szoveg + (ev - kor) + "év");
+            }
+        }
+
+        let nyugdijazaUSA = nyugdij(66);
+        nyugdijazaUSA(1975);
+        nyugdij(65)(1980);
+    </script>
+</body>
+</html>

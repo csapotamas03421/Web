@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auto</title>
+</head>
+<body>
+    
+
+    <script>
+        class Car {
+            constructor(model, evjarat, szin){
+                this.model = model;
+                this.evjarat = evjarat;
+                this.szin = szin;
+            }
+
+            autoEletkor(){
+                let date = new Date();
+                return date.getFullYear() - this.evjarat + " éves a(z) " + this.model + ".";
+            }
+ 
+        }
+
+        class Car1 extends Car{
+            constructor(model, evjarat, szin, fogyasztas, tankmeret){
+                super(model, evjarat, szin);
+                this.fogyasztas = fogyasztas;
+                this.tankmeret = tankmeret;
+            }
+        }
+
+        let auto1 = new Car1("Audi", 2015, "fekete", 6.5, 60);
+        let auto2 = new Car1("BMW", 2018, "fehér", 7.2, 55);
+        let auto3 = new Car1("Mercedes", 2025, "szürke", 8.0, 70)
+
+        console.log(auto1.autoEletkor());
+        console.log(auto2.autoEletkor());
+    </script>
+</body>
+</html>

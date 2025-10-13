@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+    <script>
+        function szam() {
+            return Math.floor(Math.random() * 201) - 100;
+        }
+
+        let tomb = [];
+
+        for (let i = 0; i < 100; i++) {
+        tomb.push(szam());
+        }   
+
+        //1
+        function parosSzamokAtlaga(tomb) {
+            let osszeg = 0;
+            let db = 0;
+            for (let j of tomb) {
+                if (j % 2 === 0) {
+                osszeg += j;
+                db++;
+                }
+            }
+            return osszeg / db ;
+        }
+
+        let atlag = parosSzamokAtlaga(tomb);
+        console.log("1. Páros számok átlaga: " , atlag);
+
+    
+
+        //2
+        function nagyobbMintSzomszedokOsszege(tomb) {
+            let db = 0;
+            for (let i of tomb.values()) {
+                if (tomb[i] > tomb[i - 1] + tomb[i + 1]) {
+                db++;
+                }
+            }
+            return db;
+        }
+
+        console.log(
+            "2. Olyan számok darabszáma, amelyek nagyobbak, mint két szomszédjuk összege: ",
+            nagyobbMintSzomszedokOsszege(tomb)
+        );
+
+
+
+
+
+        //3
+        function legnagyobbParatlan(tomb) {
+            let max = null;
+            for (let szam of tomb) {
+                if (szam % 2 !== 0) {
+                    if (max === null || szam > max) {
+                    max = szam;
+                    }
+                }
+            }
+        return max;
+        }
+
+        console.log("3. Legnagyobb páratlan szám: ", legnagyobbParatlan(tomb));
+
+
+
+
+
+        //4
+        function nincsNegyzetszam(tomb) {
+            for (let szam of tomb) {
+                if (Number.isInteger(Math.sqrt(szam)) && szam >= 0) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        console.log("4. Nincs négyzetszám a tömbben: ", nincsNegyzetszam(tomb));
+
+
+
+
+        //5
+        function hettelDeHarommalNemOszthato(tomb){
+            let tomb2 = [];
+            for(let szam of tomb){
+                if(szam % 7 === 0 && szam % 3 !== 0){
+                    tomb2.push(Math.pow(szam, 2));
+                }
+            }
+            return tomb2;
+        }
+        console.log("5. Héttel osztható, de hárommal nem osztható számok: ", hettelDeHarommalNemOszthato(tomb));
+
+    </script>
+</body>
+</html>

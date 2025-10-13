@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OOP1</title>
+</head>
+<body>
+
+
+
+    <script>
+        /*
+        let person = {
+            firstName: "John",
+            lastName: "Doe",
+            age: 50,
+
+            //metódus
+            fullName: function() {
+                return this.firstName + " " + this.lastName;
+            }
+        }
+
+        console.log(person.fullName());
+
+        for (let property in person){
+            console.log(property + ": " + person[property]);
+        }
+
+        console.log(Object.keys(person));
+        console.log(Object.values(person));
+        console.log(Object.entries(person));
+        */
+
+        /*
+        console.log(person.firstName);
+        console.log(person.lastName);
+        console.log(person.age);
+        console.log(person);
+
+        person.country = "Hungary";
+        console.log(person);
+
+        
+        let person = new Object();
+        person.firstName = "John";
+        person.lastName = "Doe";
+        person.age = 30;
+        
+
+        person.firstName = "Jane";
+        person["lastName"] = "Doe";
+        let ageStr = "age";
+        person[ageStr] = 30;
+        console.log(person);
+        */
+
+        /*
+        function MyHello(name){
+            this.name = name;
+            this.sayHello = function(){
+                return `Hello, ${this.name}!`;
+            }
+        }
+        let myHello = new MyHello("John");
+        console.log(myHello.sayHello());
+        console.log(this);
+
+
+        function fgv(){
+            console.log();
+        }
+        fgv();
+        */
+
+
+
+        // Person = prototipus
+        /*
+        function Person(firstName, lastName, age){
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.age = age;
+
+            this.fullName = function(){
+                return this.firstName + " " + this.lastName;
+            }
+        }
+
+        let person1 = new Person("John", "Doe", 50);
+        let person2 = new Person("Jane", "Smith", 30);
+        console.log(person1.fullName.call(person2)); //Jane Smith
+        console.log(person1.fullName.apply(person2)); //Jane Smith
+
+        Person.country = "Hungary";
+        console.log(person1.country);
+
+        Person.prototype.country = "Hungary";
+        console.log(person1.country);
+
+        console.log(person1);
+        */
+
+        
+        let Prototype = {
+            name: 'Prototype',
+            sayName: function(){
+                console.log('Nevem: ' + this.name);
+            }
+        }
+
+        Prototype.sayName();
+
+        
+        
+        
+
+
+        /*
+        const obj = {
+            name: 'Example',
+            logName: function(){
+                console.log(this.name);
+            }
+        }
+
+
+        const logNameFunction = obj.logName.bind(obj);
+        logNameFunction();
+        */
+
+        /*
+        const obj = {
+            name: 'Example',
+            logName: function(){
+                setTimeout(function(){
+                    console.log(this.name);
+
+                }.bind(this), 1000)
+            }
+        }
+            */
+
+
+        class Person {
+            constructor(firstName, lastName){
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+
+            fullName(){
+                return this.firstName + " " + this.lastName;
+            }
+        }
+
+        class HungarianPerson extends Person{
+            constructor(firstName, lastName){
+                super(firstName, lastName);
+            }
+
+            fullName(){
+                return this.lastName + " " + this.firstName;
+            }
+        }
+        
+        let person1 = new Person("John", "Doe");
+        let person2 = new HungarianPerson("Jane", "Smith");
+        console.log(person1.fullName());
+        console.log(person2.firstName());
+
+
+        Object.keys(obj)
+        Object.getOwnPropertyNames(obj)
+        Object.preventExtensions(obj)
+        Object.isExtensible(obj)
+        Object.seal(obj)
+        Object.isSealed(obj)
+        Object.freeze(obj)
+        Object.isFrozen(obj)
+
+    </script>
+</body>
+</html>
